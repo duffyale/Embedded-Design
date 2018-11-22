@@ -39,7 +39,7 @@ int main()
 
 	GPIO gpio(servos[servo]);
 	gpio.GeneratePWM(20000, begin, 100);
-
+    //calculate speed for the arm
 	int speed2 = ((abs(end-start)/speed) * 100)/20;
 	gpio.GenerateVariablePWM(20000, begin, finish, speed2);
 	gpio.GeneratePWM(20000, finish, 100);
