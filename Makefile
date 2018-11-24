@@ -1,14 +1,13 @@
-# Arm program Makefile 
+#Button Makefile 
 
-Run: ServoSpeed.o GPIO.o
-	g++ ServoSpeed.o GPIO.o -o run	
+main: main.o WiimoteBtns.o 
+	g++ main.o WiimoteBtns.o -o main
 
-ServoSpeed.o: ServoSpeed.cpp GPIO.h
-	g++ -g -Wall -c ServoSpeed.cpp
-	g++ -g -Wall -c GPIO.cpp
+main.o: main.cpp WiimoteBtns.h
+	g++ -g -Wall -c main.cpp
 
-GPIO.o: GPIO.cpp GPIO.h
-	g++ -g -Wall -c GPIO.cpp
+WiimoteBtns.o: WiimoteBtns.cpp WiimoteBtns.h
+	g++ -g -Wall -c WiimoteBtns.cpp
 
-clean:
-	rm ServoSpeed.o GPIO.o run
+clean: 
+	rm main.o WiimoteBtns.o main
